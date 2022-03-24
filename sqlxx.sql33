@@ -1,0 +1,56 @@
+create table student (
+id varchar2 (10),
+name varchar2(10),                  -- table 생성 ()안에 숫자는 몇글자까지
+kor varchar2 (5),
+eng varchar2 (5),
+math varchar2 (5),
+
+primary key(id)                                  -- 값이 꼭있어야함
+);
+insert into student values('Alex','Alex2','100','90','80');
+insert into student values('John','Alex3','60','70','80');      -- 값 추가
+insert into student values('Chris','Alex4','40','50','60');
+select * from student;                          -- table 목록 보여줌
+
+commit;                                         --database 저장(확정)
+
+delete from student;                            -- 삭제
+select * from student;                          -- 삭제확인
+rollback;                                       -- commit 이전으로
+select*from student;                            -- table 목록보여줌
+
+create table test_table(num number);
+
+desc test_table;                                 --table 형식보여준다
+alter table test_table add (name varchar2(20) ); -- 컬럼추가
+desc test_table;
+alter table test_table add primary key(num);       -- pk 추가
+desc test_table;                                    --테이블 확인
+alter table test_table drop primary key;              --삭제
+desc test_table;
+alter table test_table rename column num to num_b;      --   table 이름 변경
+desc test_table;
+alter table test_table drop column name;                 -- name 이라는 컬럼삭제
+desc test_table;                     
+alter table test_table modify(num_b varchar2(20));       -- 해당속성값 변경 alter를 통해서
+desc test_table;
+drop table test_table;                                  -- table 삭제
+
+select * from student;
+select * from student where eng > 90;
+select * from student where eng >= 80;
+select * from student where eng != 80;
+
+select kor+100, eng/2, math*2 from student where id='Alex';
+
+select * from student;
+select * from student where kor>=90 and math=100;
+select * from student where kor>=90 or math=100;
+select * from student where not kor>=90;
+
+select * from student where kor>=90 and kor<=100;
+select * from student where kor between 90 and 100;
+
+
+
+
